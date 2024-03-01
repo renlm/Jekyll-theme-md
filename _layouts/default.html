@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>{{ page.title }}</title>
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- Icon -->
+    <link href="{{ site.icon | default: '/assets/favicon.ico' }}" rel="shortcut icon" />
+    <!-- Layui -->
+    <link href="/assets/layui/2.8.18/css/layui.css" rel="stylesheet">
+    <script src="/assets/layui/2.8.18/layui.js"></script>
+    <!-- Jquery -->
+    <script type="text/javascript" src="/assets/editor.md/examples/js/jquery.min.js"></script>
+    <!-- Editor.md -->
+    <link rel="stylesheet" href="/assets/editor.md/css/editormd.preview.min.css" />
+    <script src="/assets/editor.md/lib/marked.min.js"></script>
+    <script src="/assets/editor.md/lib/prettify.min.js"></script>
+    <script src="/assets/editor.md/lib/raphael.min.js"></script>
+    <script src="/assets/editor.md/lib/underscore.min.js"></script>
+    <script src="/assets/editor.md/lib/sequence-diagram.min.js"></script>
+    <script src="/assets/editor.md/lib/flowchart.min.js"></script>
+    <script src="/assets/editor.md/lib/jquery.flowchart.min.js"></script>
+    <script src="/assets/editor.md/editormd.js"></script>
+    <!-- 自定义 -->
+    <link rel="stylesheet" href="/assets/_custom/css/beautify.css" />
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="md-body catalog-hide no-header">
+            <div class="md-catalog">
+                <div class="toggle collapse">
+                </div>
+                <div class="catalog container">
+                </div>
+            </div>
+            <div id="editor" class="md-content">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $.get("/{{ page.path }}", function (md) {
+                editormd.markdownToHTML("editor", {
+                    markdown           : md,
+                    path               : "/assets/editor.md/lib/",
+                    tocContainer       : ".catalog.container",
+                    tocDropdown        : false,
+                    tocm               : true,
+                    markdownSourceCode : false,
+                    emoji              : true,
+                    taskList           : true,
+                    tex                : true,
+                    flowChart          : true,
+                    sequenceDiagram    : true
+                });
+                var $catalogs = $(".md-catalog>.catalog.container>.editormd-markdown-toc>ul.markdown-toc-list");
+                var $nav = $catalogs.find("li");
+                if ($nav.length > 0) {
+                    $(".md-body.catalog-hide").removeClass("catalog-hide");
+                    setTimeout(function () {
+                        var $pos = [];
+                        $nav.each(function (i, e) {
+                            var $href = $(e).find("a").attr("href");
+                            if ($href && $href.substr(0, 1) === "#") {
+                                var $name = $href.substring(1);
+                                var $reference = $("a.reference-link[name='" + $name + "']");
+                                $pos[i] = $reference.offset().top;
+                            }
+                        });
+                        $nav.eq(0).addClass("on");
+                        $(window).scroll(function () {
+                            var $top = $(document).scrollTop();
+                            for (var i = 0; i < $pos.length; i++) {
+                                if ($top > $pos[i] - 10) {
+                                    $catalogs.find("li.on").removeClass("on");
+                                    $nav.eq(i).addClass("on");
+                                }
+                            }
+                        });
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

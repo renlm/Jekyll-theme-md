@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.renlm</groupId>
+	<artifactId>Jekyll-theme-md</artifactId>
+	<version>1.0.0</version>
+	<name>Jekyll-theme-md</name>
+	<description>A theme for GitHub Pages.</description>
+	<url>https://github.com/SpringCloudKubernetes/Jekyll-theme-md.git</url>
+	<packaging>jar</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<issueManagement>
+		<system>Github Issue</system>
+		<url>https://github.com/SpringCloudKubernetes/Jekyll-theme-md/issues</url>
+	</issueManagement>
+	<licenses>
+		<license>
+			<name>Mulan Permissive Software License，Version 2 (Mulan PSL v2)</name>
+			<url>http://license.coscl.org.cn/MulanPSL2</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>renlm</name>
+			<email>renlm@21cn.com</email>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</connection>
+		<developerConnection>scm:git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</developerConnection>
+		<url>git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</url>
+	</scm>
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>_layouts/**</include>
+					<include>assets/**</include>
+					<include>_config.yml</include>
+					<include>LICENSE</include>
+					<include>pom.xml</include>
+					<include>README.md</include>
+				</includes>
+				<targetPath>META-INF/resources/webjars</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- Gpg Signature -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- mvn clean deploy -Dmaven.test.skip=true -P release -->
+	<profiles>
+		<profile>
+			<id>release</id>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>sonatype</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+				</snapshotRepository>
+				<repository>
+					<id>sonatype</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.13</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>sonatype</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<repositories>
+		<repository>
+			<id>huaweicloud</id>
+			<name>Huawei Maven</name>
+			<url>https://mirrors.huaweicloud.com/repository/maven</url>
+		</repository>
+		<repository>
+			<id>aliyun</id>
+			<name>Aliyun Public</name>
+			<url>https://maven.aliyun.com/repository/public</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>huaweicloud</id>
+			<name>Huawei Maven</name>
+			<url>https://mirrors.huaweicloud.com/repository/maven</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>aliyun</id>
+			<name>Aliyun Public</name>
+			<url>https://maven.aliyun.com/repository/public</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

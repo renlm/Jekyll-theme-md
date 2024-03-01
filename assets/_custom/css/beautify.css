@@ -1,0 +1,133 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+body {
+	width: 100%;
+	min-height: 100%;
+	background: white;
+}
+
+::-webkit-scrollbar {
+	height: 10px;
+	width: 7px;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	-ms-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	-o-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.editormd.noborder {
+	border: none;
+}
+
+.editormd-html-preview {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.md-body.no-header {
+	margin-top: 0;
+	border-top: none;
+}
+
+.md-body {
+	margin-top: 0;
+	margin-left: 10px;
+}
+
+.md-body.catalog-hide .md-catalog {
+	display: none;
+}
+
+.md-body .md-catalog {
+	position: static;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	float: left;
+	padding-top: 0px;
+	max-width: 210px;
+	min-width: 210px;
+}
+
+.md-body .md-catalog .catalog.container {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.md-body .md-catalog .catalog.container {
+	width: inherit;
+	min-height: calc(100vh - 157px);
+	max-height: calc(100vh - 50px);
+	overflow-y: scroll;
+}
+
+.md-body .md-catalog .catalog.container::-webkit-scrollbar {
+	width: 0;
+}
+
+.md-body .md-catalog .catalog.container ul.markdown-toc-list {
+	margin: 0;
+	padding-left: 10px;
+}
+
+.md-body .md-catalog .catalog.container ul {
+	margin: 0;
+	padding-left: 16px;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 28px;
+}
+
+.md-body .md-catalog .catalog.container ul li {
+	list-style: initial;
+	list-style-position: inside;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.md-body .md-catalog .catalog.container ul li.on::marker, .md-body .md-catalog .catalog.container ul li.on>a
+	{
+	color: #fe7300;
+	font-weight: 600;
+}
+
+.md-body.catalog-hide .md-content {
+	border-left: none;
+}
+
+.md-body .md-content {
+	width: auto !important;
+	padding-left: 45px !important;
+	padding-right: 20px !important;
+	border-left: 1px solid #dce3e8;
+}
