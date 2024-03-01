@@ -3,17 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.renlm</groupId>
 	<artifactId>Jekyll-theme-md</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Jekyll-theme-md</name>
-	<description>A theme for GitHub Pages.</description>
-	<url>https://github.com/SpringCloudKubernetes/Jekyll-theme-md.git</url>
+	<description>A Jekyll theme for GitHub Pages.</description>
+	<url>https://github.com/renlm/Jekyll-theme-md.git</url>
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<issueManagement>
 		<system>Github Issue</system>
-		<url>https://github.com/SpringCloudKubernetes/Jekyll-theme-md/issues</url>
+		<url>https://github.com/renlm/Jekyll-theme-md/issues</url>
 	</issueManagement>
 	<licenses>
 		<license>
@@ -28,9 +28,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</connection>
-		<developerConnection>scm:git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</developerConnection>
-		<url>git@github.com/SpringCloudKubernetes/Jekyll-theme-md.git</url>
+		<connection>scm:git@github.com:renlm/Jekyll-theme-md.git</connection>
+		<developerConnection>scm:git@github.com:renlm/Jekyll-theme-md.git</developerConnection>
+		<url>https://github.com/renlm/Jekyll-theme-md.git</url>
 	</scm>
 	<build>
 		<resources>
