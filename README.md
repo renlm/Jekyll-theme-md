@@ -4,6 +4,7 @@
 ### Jekyll
 	https://www.jekyll.com.cn/docs/
 
+### _config.yml
 ```
 title: Home
 description: 个人笔记.
