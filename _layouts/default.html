@@ -45,6 +45,7 @@
                 editormd.markdownToHTML("editor", {
                     markdown           : md,
                     path               : "/assets/editor.md/lib/",
+                    htmlDecode         : "style,script,iframe|on*", 
                     tocContainer       : ".catalog.container",
                     tocDropdown        : false,
                     tocm               : true,
