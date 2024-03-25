@@ -121,6 +121,15 @@ body {
 	text-overflow: ellipsis;
 }
 
+.md-body .md-catalog .catalog.container ul li a {
+	color: #333;
+	text-decoration: none;
+}
+
+.md-body .md-catalog .catalog.container ul li a:hover {
+	color: #777
+}
+
 .md-body .md-catalog .catalog.container ul li.on::marker, .md-body .md-catalog .catalog.container ul li.on>a
 	{
 	color: #fe7300;
